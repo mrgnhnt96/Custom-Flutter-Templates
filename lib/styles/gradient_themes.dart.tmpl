@@ -1,0 +1,71 @@
+import 'package:flutter/material.dart';
+
+class GradientThemes {
+  static LinearGradient mainGradient(Color firstColor, Color secondColor) {
+    return LinearGradient(
+      colors: <Color>[
+        firstColor.withOpacity(.95),
+        secondColor.withOpacity(1),
+      ],
+      stops: [0.1, 1.0],
+      begin: const FractionalOffset(0.0, 0.0),
+      end: const FractionalOffset(0.0, 1.0),
+    );
+  }
+
+  static LinearGradient smoothEnd(
+    Color color, {
+    Alignment begin = Alignment.topCenter,
+    Alignment end = Alignment.bottomCenter,
+  }) {
+    return LinearGradient(
+      colors: [
+        color.withOpacity(.3),
+        color.withOpacity(.4),
+        color.withOpacity(.5),
+        color.withOpacity(.7),
+        color.withOpacity(.8),
+      ],
+      begin: begin,
+      end: end,
+      stops: [.1, .2, .3, .4, .5],
+    );
+  }
+
+  static LinearGradient lined(
+    Color color, {
+    Alignment begin = Alignment.topLeft,
+    Alignment end = Alignment.bottomRight,
+  }) {
+    return LinearGradient(
+      colors: [
+        color.withOpacity(.5),
+        color.withOpacity(.6),
+        color.withOpacity(.7),
+        color.withOpacity(.8),
+        color.withOpacity(.9),
+        color.withOpacity(1),
+      ],
+      begin: begin,
+      end: end,
+      stops: [.1, .1, .3, .3, .5, .5],
+      // stops: [.05, .2, .4, .6, .8, .9],
+    );
+  }
+
+  static RadialGradient sideLined(
+    Color color,
+    Color color2, {
+    Alignment begin = Alignment.topLeft,
+    Alignment end = Alignment.bottomRight,
+  }) {
+    return RadialGradient(
+      colors: [
+        color,
+        color2,
+      ],
+
+      // stops: [],
+    );
+  }
+}

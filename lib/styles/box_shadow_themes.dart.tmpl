@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:{{projectName}}/styles/color_themes.dart';
+
+class BoxShadowThemes {
+  static BoxShadow primary = defaultShadow(ColorThemes.primary);
+  static BoxShadow onPrimary = defaultShadow(ColorThemes.onPrimary);
+  static BoxShadow gray = defaultShadow(ColorThemes.gray);
+}
+
+BoxShadow defaultShadow(Color color) {
+  return BoxShadow(
+    blurRadius: 15,
+    spreadRadius: -5,
+    color: color.withOpacity(.8),
+    offset: Offset(5, 10),
+  );
+}

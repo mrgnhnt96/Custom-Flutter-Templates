@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:{{projectName}}/screens/home_screen/home_screen.dart';
+
+import 'package:{{projectName}}/styles/text_themes.dart';
+import 'package:{{projectName}}/styles/color_themes.dart';
+
+import 'package:{{projectName}}/widgets/remove_focus_node.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    return RemoveFocusNode(
+      child: MaterialApp(
+        title: '{{projectName}}',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          backgroundColor: ColorThemes.background,
+          dividerColor: ColorThemes.divider,
+          primaryColor: ColorThemes.primary,
+          errorColor: ColorThemes.error,
+          canvasColor: ColorThemes.background,
+          fontFamily: GoogleFonts.rubik().fontFamily,
+          textTheme: TextTheme(
+            title: TextThemes.header,
+          ),
+        ),
+        home: HomeScreen(),
+        routes: {
+          HomeScreen.routeName: (ctx) => HomeScreen(),
+        },
+        onGenerateRoute: (settings) {
+          return MaterialPageRoute(builder: (ctx) => HomeScreen());
+        },
+        onUnknownRoute: (settings) {
+          return MaterialPageRoute(builder: (ctx) => HomeScreen());
+        },
+      ),
+    );
+  }
+}

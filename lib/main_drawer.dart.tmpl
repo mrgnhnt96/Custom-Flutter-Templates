@@ -1,0 +1,140 @@
+import 'package:flutter/material.dart';
+
+import 'package:{{projectName}}/models/drawer_item.dart';
+
+import 'package:{{projectName}}/styles/color_themes.dart';
+import 'package:{{projectName}}/styles/icon_themes.dart';
+import 'package:{{projectName}}/styles/text_themes.dart';
+
+import 'package:{{projectName}}/widgets/hh_icon.dart';
+import 'package:{{projectName}}/widgets/scale_widget.dart';
+
+import 'package:{{projectName}}/screens/home_screen/home_screen.dart';
+
+import 'package:{{projectName}}/dummy_data/page_names.dart';
+
+class MainDrawer extends StatefulWidget {
+  @override
+  _MainDrawerState createState() => _MainDrawerState();
+}
+
+class _MainDrawerState extends State<MainDrawer> {
+  var _drawerItems = PageNames;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (ctx, drawerConstraints) {
+        return Container(
+          width: drawerConstraints.maxWidth * .85,
+          color: ColorThemes.background,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            physics: NeverScrollableScrollPhysics(),
+            children: <Widget>[
+              DrawerHeader(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {},
+                      child: CircleAvatar(
+                        radius: drawerConstraints.maxHeight * .25 / 3,
+                        backgroundColor: Colors.transparent,
+                        backgroundImage: NetworkImage('https://vignette.wikia.nocookie.net/starwars/images/d/d9/Luke-rotjpromo.jpg/revision/latest?cb=20091030151422'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                      child: Container(
+                        width: drawerConstraints.maxWidth * 0.35,
+                        child: ScaleWidget(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Luke',
+                                style: TextThemes.darkHeader6,
+                              ),
+                              Text(
+                                'Skywalker',
+                                style: TextThemes.darkHeader6,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 20.0),
+                                child: Row(
+                                  children: <Widget>[
+                                    HHIcon(
+                                      Icons.star,
+                                      style: IconThemes.darkSmall,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                                      child: Text(
+                                        '4.65',
+                                        textAlign: TextAlign.left,
+                                        style: TextThemes.darkSubtitle,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                decoration: BoxDecoration(
+                  color: ColorThemes.primary,
+                ),
+              ),
+              Column(
+                children: _drawerItems.map(
+                  (item) {
+                    return DrawerListItem(
+                      drawerItem: item,
+                    );
+                  },
+                ).toList(),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+class DrawerListItem extends StatelessWidget {
+  const DrawerListItem({
+    Key key,
+    DrawerItem drawerItem,
+  })  : _drawerItem = drawerItem,
+        super(key: key);
+
+  final DrawerItem _drawerItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: ListTile(
+        leading: HHIcon.darkMedium(
+          _drawerItem.icon,
+        ),
+        title: Text(
+          _drawerItem.title,
+          style: TextThemes.darkBodyBold,
+        ),
+        subtitle: Text(
+          _drawerItem.subtitle,
+          style: TextThemes.darkCaption,
+        ),
+        onTap: () => Navigator.of(context).pushNamed(_drawerItem.routeName),
+      ),
+    );
+  }
+}

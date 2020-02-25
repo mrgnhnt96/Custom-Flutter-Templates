@@ -1,0 +1,189 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:{{projectName}}/styles/color_themes.dart';
+
+final double scaleFactor = 1;
+final font = GoogleFonts.rubik();
+
+class TextThemes {
+  //______________________ HEADERS ______________________
+  static TextStyle header = TextStyle(
+    fontFamily: font.fontFamily,
+    fontWeight: FontWeight.w300,
+    fontSize: 96 * scaleFactor,
+    letterSpacing: -1.5,
+    color: ColorThemes.onSecondary,
+  );
+
+  static TextStyle header2 = TextThemes.header.copyWith(
+    fontSize: 60 * scaleFactor,
+    letterSpacing: -0.5,
+  );
+
+  static TextStyle header3 = TextThemes.header.copyWith(
+    fontWeight: FontWeight.w400,
+    fontSize: 48 * scaleFactor,
+    letterSpacing: 0,
+  );
+
+  static TextStyle header4 = TextThemes.header.copyWith(
+    fontWeight: FontWeight.w400,
+    fontSize: 34 * scaleFactor,
+    letterSpacing: 0.25,
+  );
+
+  static TextStyle header5 = TextThemes.header.copyWith(
+    fontWeight: FontWeight.w400,
+    fontSize: 24 * scaleFactor,
+    letterSpacing: 0,
+  );
+
+  static TextStyle header6 = TextThemes.header.copyWith(
+    fontWeight: FontWeight.w500,
+    fontSize: 20 * scaleFactor,
+    letterSpacing: 0.15,
+  );
+
+  static TextStyle darkHeader = TextThemes.header.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkHeader2 = TextThemes.header2.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkHeader3 = TextThemes.header3.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkHeader4 = TextThemes.header4.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkHeader5 = TextThemes.header5.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkHeader6 = TextThemes.header6.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  //______________________ SUBTITLES ______________________
+  static TextStyle subtitle = TextStyle(
+    fontFamily: font.fontFamily,
+    fontWeight: FontWeight.w400,
+    fontSize: 16 * scaleFactor,
+    letterSpacing: 0.15,
+    color: ColorThemes.onSecondary,
+  );
+
+  static TextStyle subtitle2 = TextThemes.subtitle.copyWith(
+    fontWeight: FontWeight.w500,
+    fontSize: 14 * scaleFactor,
+    letterSpacing: 0.1,
+  );
+
+  static TextStyle darkSubtitle = TextThemes.subtitle.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkSubtitle2 = TextThemes.subtitle2.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  //______________________ BODYS _________________________
+  static TextStyle body = TextStyle(
+    fontFamily: font.fontFamily,
+    fontWeight: FontWeight.w400,
+    fontSize: 16 * scaleFactor,
+    letterSpacing: 0.5,
+    color: ColorThemes.onSecondary,
+  );
+
+  static TextStyle body2 = TextThemes.body.copyWith(
+    fontWeight: FontWeight.w400,
+    fontSize: 14 * scaleFactor,
+    letterSpacing: 0.25,
+  );
+
+  static TextStyle bodyBold = TextThemes.body.copyWith(
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle grayBody = TextThemes.body.copyWith(
+    color: ColorThemes.gray,
+  );
+
+  static TextStyle grayBodyBold = TextThemes.body.copyWith(
+    color: ColorThemes.gray,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle darkBody = TextThemes.body.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkBody2 = TextThemes.body2.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkBodyBold = TextThemes.darkBody.copyWith(
+    fontWeight: FontWeight.w600,
+  );
+
+  //______________________ BUTTONS _________________________
+
+  static TextStyle button = TextThemes.caption;
+  static double buttonLarge = 20 * scaleFactor;
+  static double buttonMedium = 16 * scaleFactor;
+  static double buttonSmall = 14 * scaleFactor;
+
+  //______________________ CAPTIONS ______________________
+  static TextStyle caption = TextStyle(
+    fontFamily: font.fontFamily,
+    fontWeight: FontWeight.w400,
+    fontSize: 12 * scaleFactor,
+    letterSpacing: 0.4,
+    color: ColorThemes.onSecondary,
+  );
+
+  static TextStyle captionBold = TextThemes.caption.copyWith(
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle grayCaption = TextThemes.caption.copyWith(
+    color: ColorThemes.gray,
+  );
+
+  static TextStyle grayCaptionBold = TextThemes.caption.copyWith(
+    color: ColorThemes.gray,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle captionItalic = TextThemes.caption.copyWith(
+    fontStyle: FontStyle.italic,
+  );
+
+  static TextStyle darkCaption = TextThemes.caption.copyWith(
+    color: ColorThemes.onPrimary,
+  );
+
+  static TextStyle darkCaptionBold = TextThemes.darkCaption.copyWith(
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle darkCaptionItalic = TextThemes.darkCaption.copyWith(
+    fontStyle: FontStyle.italic,
+  );
+
+  //______________________ OVERLINES ______________________
+  static TextStyle overline = TextStyle(
+    fontFamily: font.fontFamily,
+    fontWeight: FontWeight.w400,
+    fontSize: 10 * scaleFactor,
+    letterSpacing: 1.5,
+    color: ColorThemes.onSecondary,
+  );
+}

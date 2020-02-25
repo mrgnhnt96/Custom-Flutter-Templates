@@ -1,0 +1,119 @@
+import 'package:flutter/material.dart';
+import 'package:{{projectName}}/models/hh_icon_theme.dart';
+import 'package:{{projectName}}/styles/icon_themes.dart';
+export 'package:{{projectName}}/models/hh_icon_theme.dart';
+
+class HHIcon extends StatelessWidget {
+  HHIcon(
+    this.icon, {
+    @required this.style,
+  }) : super();
+
+  final IconData icon;
+  final HHIconTheme style;
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      icon,
+      color: style.color,
+      size: style.size,
+    );
+  }
+
+  factory HHIcon.small(
+    IconData icon,
+  ) {
+    return HHIcon(
+      icon,
+      style: IconThemes.small,
+    );
+  }
+
+  factory HHIcon.medium(
+    IconData icon,
+  ) {
+    return HHIcon(
+      icon,
+      style: IconThemes.medium,
+    );
+  }
+
+  factory HHIcon.large(
+    IconData icon,
+  ) {
+    return HHIcon(
+      icon,
+      style: IconThemes.large,
+    );
+  }
+
+  factory HHIcon.darkSmall(
+    IconData icon,
+  ) {
+    return HHIcon(
+      icon,
+      style: IconThemes.darkSmall,
+    );
+  }
+
+  factory HHIcon.darkMedium(
+    IconData icon,
+  ) {
+    return HHIcon(
+      icon,
+      style: IconThemes.darkMedium,
+    );
+  }
+
+  factory HHIcon.darkLarge(
+    IconData icon,
+  ) {
+    return HHIcon(
+      icon,
+      style: IconThemes.darkLarge,
+    );
+  }
+
+  factory HHIcon.colorSmall(
+    IconData icon, {
+    @required Color color,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.small.size,
+      color: color,
+    );
+    return HHIcon(
+      icon,
+      style: _temp,
+    );
+  }
+
+  factory HHIcon.colorMedium(
+    IconData icon, {
+    @required Color color,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.medium.size,
+      color: color,
+    );
+    return HHIcon(
+      icon,
+      style: _temp,
+    );
+  }
+
+  factory HHIcon.colorLarge(
+    IconData icon, {
+    @required Color color,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.large.size,
+      color: color,
+    );
+    return HHIcon(
+      icon,
+      style: _temp,
+    );
+  }
+}

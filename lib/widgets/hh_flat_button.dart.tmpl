@@ -1,0 +1,148 @@
+import 'package:flutter/material.dart';
+
+import 'package:{{projectName}}/styles/color_themes.dart';
+import 'package:{{projectName}}/styles/text_themes.dart';
+
+class HHFlatButton extends StatelessWidget {
+  HHFlatButton({
+    @required this.size,
+    @required this.color,
+    @required this.title,
+    @required this.onPressed,
+  }) : super();
+
+  final double size;
+  final Color color;
+  final String title;
+  final Function onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      onPressed: onPressed,
+      child: Center(
+        child: Text(
+          title.toUpperCase(),
+          style: TextThemes.button.copyWith(
+            color: color,
+            fontSize: size,
+          ),
+        ),
+      ),
+    );
+  }
+
+  factory HHFlatButton.small({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.primary,
+      onPressed: onPressed,
+      size: TextThemes.buttonSmall,
+    );
+  }
+
+  factory HHFlatButton.medium({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.primary,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+    );
+  }
+
+  factory HHFlatButton.large({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.primary,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+    );
+  }
+
+  factory HHFlatButton.darkSmall({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.secondary,
+      onPressed: onPressed,
+      size: TextThemes.buttonSmall,
+    );
+  }
+
+  factory HHFlatButton.darkMedium({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.secondary,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+    );
+  }
+
+  factory HHFlatButton.darkLarge({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.secondary,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+    );
+  }
+
+  factory HHFlatButton.colorSmall({
+    @required Function onPressed,
+    @required String title,
+    @required Color color,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: color,
+      onPressed: onPressed,
+      size: TextThemes.buttonSmall,
+    );
+  }
+
+  factory HHFlatButton.colorMedium({
+    @required Function onPressed,
+    @required String title,
+    @required Color color,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: color,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+    );
+  }
+
+  factory HHFlatButton.colorLarge({
+    @required Function onPressed,
+    @required String title,
+    @required Color color,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: color,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+    );
+  }
+}

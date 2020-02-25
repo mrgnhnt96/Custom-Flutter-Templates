@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+import 'package:{{projectName}}/styles/text_themes.dart';
+import 'package:{{projectName}}/widgets/hh_icon_button.dart';
+
+class HHAppBar extends AppBar {
+  HHAppBar({
+    Key key,
+    Color color: Colors.transparent,
+    String title,
+    bool showShadow: false,
+    Widget leftAction: const SizedBox(width: 0),
+    Widget rightAction: const SizedBox(width: 0),
+    bool displayRoadLine: true,
+    @required BuildContext context,
+  }) : super(
+          key: key,
+          title: Text(
+            title,
+            style: TextThemes.darkHeader5,
+          ),
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: color,
+          actions: <Widget>[
+            leftAction,
+            HHIconButton.darkSmall(
+              icon: Icons.notifications_active,
+              onPressed: () {},
+            ),
+            rightAction,
+          ],
+        );
+}

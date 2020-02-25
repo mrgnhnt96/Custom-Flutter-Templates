@@ -1,0 +1,73 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Personal",
+      "deviceId": "Morgan's iPhone",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Tester 7",
+      "deviceId": "Morgan's Tester 7",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Tester 7 Plus",
+      "deviceId": "Morgan",
+      "request": "launch",
+      "type": "dart"
+    },
+
+    {
+      "name": "iOS LG",
+      "deviceId": "iPhone 11 Pro Max",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "iOS SM +",
+      "deviceId": "iPhone 8 Plus",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "iOS SM",
+      "deviceId": "iPhone 8",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Android",
+      "deviceId": "AOSP on IA Emulator",
+      "request": "launch",
+      "type": "dart"
+    }
+  ],
+  "compounds": [
+    // {
+    //   "name": "All iOS + PYS",
+    //   "configurations": ["iOS LG", "iOS SM", "Personal"]
+    // },
+    // {
+    //   "name": "All iOS",
+    //   "configurations": ["iOS LG", "iOS SM"]
+    // },
+    // {
+    //   "name": "SM + PYS",
+    //   "configurations": ["Personal", "iOS SM"]
+    // },
+    // {
+    //   "name": "LG + PYS",
+    //   "configurations": ["Personal", "iOS LG"]
+    // },
+    // {
+    //   "name": "All Platforms",
+    //   "configurations": ["iOS LG", "Android"]
+    // }
+  ]
+}

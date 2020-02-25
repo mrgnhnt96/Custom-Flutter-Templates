@@ -1,0 +1,151 @@
+import 'package:flutter/material.dart';
+import 'package:{{projectName}}/models/hh_icon_theme.dart';
+
+import 'package:{{projectName}}/styles/icon_themes.dart';
+
+class HHIconButton extends StatelessWidget {
+  HHIconButton({
+    @required this.style,
+    @required this.icon,
+    @required this.onPressed,
+  }) : super();
+
+  final HHIconTheme style;
+  final IconData icon;
+  final Function onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Center(
+        child: Icon(
+          icon,
+          color: style.color,
+          size: style.size,
+        ),
+      ),
+      // icon: SizedBox(
+      //   height: MediaQuery.of(context).size.height * heightPercent,
+      //   width: MediaQuery.of(context).size.width * widthPercent,
+      //   child: Center(
+      //     child: null
+      //   ),
+      // ),
+    );
+  }
+
+  factory HHIconButton.small({
+    @required Function onPressed,
+    @required IconData icon,
+  }) {
+    return HHIconButton(
+      style: IconThemes.small,
+      icon: icon,
+      onPressed: onPressed,
+    );
+  }
+
+  factory HHIconButton.medium({
+    @required Function onPressed,
+    @required IconData icon,
+  }) {
+    return HHIconButton(
+      icon: icon,
+      onPressed: onPressed,
+      style: IconThemes.medium,
+    );
+  }
+
+  factory HHIconButton.large({
+    @required Function onPressed,
+    @required IconData icon,
+  }) {
+    return HHIconButton(
+      icon: icon,
+      onPressed: onPressed,
+      style: IconThemes.large,
+    );
+  }
+
+  factory HHIconButton.darkSmall({
+    @required Function onPressed,
+    @required IconData icon,
+  }) {
+    return HHIconButton(
+      icon: icon,
+      onPressed: onPressed,
+      style: IconThemes.onSecondarySmall,
+    );
+  }
+
+  factory HHIconButton.darkMedium({
+    @required Function onPressed,
+    @required IconData icon,
+  }) {
+    return HHIconButton(
+      icon: icon,
+      onPressed: onPressed,
+      style: IconThemes.onSecondaryMedium,
+    );
+  }
+
+  factory HHIconButton.darkLarge({
+    @required Function onPressed,
+    @required IconData icon,
+  }) {
+    return HHIconButton(
+      icon: icon,
+      onPressed: onPressed,
+      style: IconThemes.onSecondaryLarge,
+    );
+  }
+
+  factory HHIconButton.colorSmall({
+    @required Function onPressed,
+    @required IconData icon,
+    @required Color color,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.small.size,
+      color: color,
+    );
+    return HHIconButton(
+      icon: icon,
+      onPressed: onPressed,
+      style: _temp,
+    );
+  }
+
+  factory HHIconButton.colorMedium({
+    @required Function onPressed,
+    @required IconData icon,
+    @required Color color,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.medium.size,
+      color: color,
+    );
+    return HHIconButton(
+      icon: icon,
+      onPressed: onPressed,
+      style: _temp,
+    );
+  }
+
+  factory HHIconButton.colorLarge({
+    @required Function onPressed,
+    @required IconData icon,
+    @required Color color,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.large.size,
+      color: color,
+    );
+    return HHIconButton(
+      icon: icon,
+      onPressed: onPressed,
+      style: _temp,
+    );
+  }
+}

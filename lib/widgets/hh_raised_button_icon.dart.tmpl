@@ -1,0 +1,223 @@
+import 'package:flutter/material.dart';
+import 'package:{{projectName}}/models/hh_icon_theme.dart';
+import 'package:{{projectName}}/styles/color_themes.dart';
+import 'package:{{projectName}}/styles/icon_themes.dart';
+
+import 'package:{{projectName}}/styles/text_themes.dart';
+import 'package:{{projectName}}/widgets/hh_icon.dart';
+import 'package:{{projectName}}/widgets/hh_raised_button.dart';
+
+class HHRaisedButtonIcon extends StatelessWidget {
+  HHRaisedButtonIcon({
+    this.heightPercent: 0.055,
+    @required this.widthPercent,
+    @required this.size,
+    @required this.color,
+    @required this.icon,
+    @required this.iconStyle,
+    @required this.label,
+    @required this.onPressed,
+  }) : super();
+
+  final double heightPercent;
+  final double widthPercent;
+  final Color color;
+  final double size;
+  final HHIconTheme iconStyle;
+  final String label;
+  final IconData icon;
+  final Function onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    var _tempWidth = widthPercent;
+    _tempWidth = _tempWidth == 1 ? .66 : _tempWidth;
+    return RaisedButton.icon(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      onPressed: onPressed,
+      color: color,
+      label: SizedBox(
+        height: MediaQuery.of(context).size.height * heightPercent,
+        width: MediaQuery.of(context).size.width * _tempWidth,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            label.toUpperCase(),
+            style: TextThemes.button.copyWith(
+              color: iconStyle.color,
+              fontSize: size,
+            ),
+          ),
+        ),
+      ),
+      icon: HHIcon(
+        icon,
+        style: iconStyle,
+      ),
+    );
+  }
+
+  factory HHRaisedButtonIcon.small({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHRaisedButtonIcon(
+      iconStyle: IconThemes.onPrimarySmall,
+      widthPercent: HHRaisedButton.smallButtonWidth,
+      color: ColorThemes.primary,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonSmall,
+      icon: icon,
+    );
+  }
+
+  factory HHRaisedButtonIcon.medium({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHRaisedButtonIcon(
+      widthPercent: HHRaisedButton.mediumButtonWidth,
+      iconStyle: IconThemes.onPrimaryMedium,
+      color: ColorThemes.primary,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+      icon: icon,
+    );
+  }
+
+  factory HHRaisedButtonIcon.large({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHRaisedButtonIcon(
+      widthPercent: HHRaisedButton.largeButtonWidth,
+      iconStyle: IconThemes.onPrimaryMedium,
+      color: ColorThemes.primary,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+      icon: icon,
+    );
+  }
+
+  factory HHRaisedButtonIcon.darkSmall({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHRaisedButtonIcon(
+      iconStyle: IconThemes.onSecondarySmall,
+      widthPercent: HHRaisedButton.smallButtonWidth,
+      color: ColorThemes.secondary,
+      label: label,
+      size: TextThemes.buttonSmall,
+      onPressed: onPressed,
+      icon: icon,
+    );
+  }
+
+  factory HHRaisedButtonIcon.darkMedium({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHRaisedButtonIcon(
+      widthPercent: HHRaisedButton.mediumButtonWidth,
+      iconStyle: IconThemes.onSecondaryMedium,
+      color: ColorThemes.secondary,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+      icon: icon,
+    );
+  }
+
+  factory HHRaisedButtonIcon.darkLarge({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHRaisedButtonIcon(
+      widthPercent: HHRaisedButton.largeButtonWidth,
+      color: ColorThemes.secondary,
+      iconStyle: IconThemes.onSecondaryMedium,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+      icon: icon,
+    );
+  }
+
+  factory HHRaisedButtonIcon.colorSmall({
+    @required Function onPressed,
+    @required String label,
+    @required Color buttonColor,
+    @required Color textColor,
+    @required IconData icon,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.small.size,
+      color: textColor,
+    );
+    return HHRaisedButtonIcon(
+      widthPercent: HHRaisedButton.smallButtonWidth,
+      iconStyle: _temp,
+      label: label,
+      color: buttonColor,
+      size: TextThemes.buttonSmall,
+      onPressed: onPressed,
+      icon: icon,
+    );
+  }
+
+  factory HHRaisedButtonIcon.colorMedium({
+    @required Function onPressed,
+    @required String label,
+    @required Color buttonColor,
+    @required Color textColor,
+    @required IconData icon,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.medium.size,
+      color: textColor,
+    );
+    return HHRaisedButtonIcon(
+      widthPercent: HHRaisedButton.mediumButtonWidth,
+      color: buttonColor,
+      iconStyle: _temp,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+      icon: icon,
+    );
+  }
+
+  factory HHRaisedButtonIcon.colorLarge({
+    @required Function onPressed,
+    @required String label,
+    @required Color buttonColor,
+    @required Color textColor,
+    @required IconData icon,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.medium.size,
+      color: textColor,
+    );
+    return HHRaisedButtonIcon(
+      widthPercent: HHRaisedButton.largeButtonWidth,
+      color: buttonColor,
+      iconStyle: _temp,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+      icon: icon,
+    );
+  }
+}

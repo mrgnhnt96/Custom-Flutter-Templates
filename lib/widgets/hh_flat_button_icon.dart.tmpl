@@ -1,0 +1,185 @@
+import 'package:flutter/material.dart';
+import 'package:{{projectName}}/styles/icon_themes.dart';
+
+import 'package:{{projectName}}/styles/text_themes.dart';
+import 'package:{{projectName}}/widgets/hh_icon.dart';
+
+class HHFlatButtonIcon extends StatelessWidget {
+  HHFlatButtonIcon({
+    @required this.size,
+    @required this.icon,
+    @required this.iconStyle,
+    @required this.label,
+    @required this.onPressed,
+  }) : super();
+
+  final double size;
+  final HHIconTheme iconStyle;
+  final String label;
+  final IconData icon;
+  final Function onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton.icon(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      onPressed: onPressed,
+      label: Center(
+        child: Text(
+          label.toUpperCase(),
+          style: TextThemes.button.copyWith(
+            color: iconStyle.color,
+            fontSize: size,
+          ),
+        ),
+      ),
+      icon: HHIcon(
+        icon,
+        style: iconStyle,
+      ),
+    );
+  }
+
+  factory HHFlatButtonIcon.small({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.small,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonSmall,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.medium({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.medium,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.large({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.large,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.darkSmall({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.darkSmall,
+      label: label,
+      size: TextThemes.buttonSmall,
+      onPressed: onPressed,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.darkMedium({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.darkMedium,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.darkLarge({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.darkLarge,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.colorSmall({
+    @required Function onPressed,
+    @required String label,
+    @required Color color,
+    @required IconData icon,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.small.size,
+      color: color,
+    );
+    return HHFlatButtonIcon(
+      iconStyle: _temp,
+      label: label,
+      size: TextThemes.buttonSmall,
+      onPressed: onPressed,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.colorMedium({
+    @required Function onPressed,
+    @required String label,
+    @required Color color,
+    @required IconData icon,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.medium.size,
+      color: color,
+    );
+    return HHFlatButtonIcon(
+      iconStyle: _temp,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.colorLarge({
+    @required Function onPressed,
+    @required String label,
+    @required Color color,
+    @required IconData icon,
+  }) {
+    HHIconTheme _temp = HHIconTheme(
+      size: IconThemes.large.size,
+      color: color,
+    );
+    return HHFlatButtonIcon(
+      iconStyle: _temp,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+      icon: icon,
+    );
+  }
+}
