@@ -9,5 +9,5 @@ This is used to replace your current flutter app template upon "flutter create"
       - If you decide in the future you want to revert to the original do the this step with the "lib [ORIGINAL]" folder or "flutter upgrade"
   4. Add "assets.tmpl" folder
   5. Add "pubspec.yaml" file
-  6. [OPTIONAL] Copy *YOUR* .vscode folder
+  6. [OPTIONAL] Copy *your* .vscode folder
       - This is nice to keep your emulator configurations/settings consitent throughout your projects
