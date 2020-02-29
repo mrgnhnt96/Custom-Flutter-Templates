@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:{{projectName}}/models/hh_icon_theme.dart';
-import 'package:{{projectName}}/styles/color_themes.dart';
-import 'package:{{projectName}}/styles/icon_themes.dart';
+import 'package:twenty20_mobile/models/hh_icon_theme.dart';
+import 'package:twenty20_mobile/styles/color_themes.dart';
+import 'package:twenty20_mobile/styles/icon_themes.dart';
 
-import 'package:{{projectName}}/styles/text_themes.dart';
-import 'package:{{projectName}}/widgets/hh_icon.dart';
-import 'package:{{projectName}}/widgets/hh_raised_button.dart';
+import 'package:twenty20_mobile/styles/text_themes.dart';
+import 'package:twenty20_mobile/widgets/hh_icon.dart';
+import 'package:twenty20_mobile/widgets/hh_raised_button.dart';
 
 class HHRaisedButtonIcon extends StatelessWidget {
   HHRaisedButtonIcon({
     this.heightPercent: 0.055,
+    this.fontColor,
+    @required this.forceOneLine,
     @required this.widthPercent,
     @required this.size,
     @required this.color,
     @required this.icon,
+    @required this.forceIconLeft,
     @required this.iconStyle,
     @required this.label,
     @required this.onPressed,
   }) : super();
 
+  final Color fontColor;
+  final bool forceOneLine;
+  final bool forceIconLeft;
   final double heightPercent;
   final double widthPercent;
   final Color color;
@@ -30,39 +36,50 @@ class HHRaisedButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _tempWidth = widthPercent;
-    _tempWidth = _tempWidth == 1 ? .66 : _tempWidth;
-    return RaisedButton.icon(
+    Color _tempfontColor = fontColor != null ? fontColor : iconStyle.color;
+    return RaisedButton(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(5),
       ),
       onPressed: onPressed,
       color: color,
-      label: SizedBox(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height * heightPercent,
-        width: MediaQuery.of(context).size.width * _tempWidth,
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            label.toUpperCase(),
-            style: TextThemes.button.copyWith(
-              color: iconStyle.color,
-              fontSize: size,
+        width: MediaQuery.of(context).size.width * widthPercent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            if (forceIconLeft)
+              HHIcon(
+                icon,
+                style: iconStyle,
+              ),
+            Text(
+              label,
+              maxLines: forceOneLine ? 1 : null,
+              style: TextThemes.button.copyWith(
+                color: _tempfontColor,
+                fontSize: size,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
+            if (!forceIconLeft)
+              HHIcon(
+                icon,
+                style: iconStyle,
+              ),
+          ],
         ),
-      ),
-      icon: HHIcon(
-        icon,
-        style: iconStyle,
       ),
     );
   }
 
-  factory HHRaisedButtonIcon.small({
+  factory HHRaisedButtonIcon.primarySmall({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
   }) {
     return HHRaisedButtonIcon(
       iconStyle: IconThemes.onPrimarySmall,
@@ -72,152 +89,177 @@ class HHRaisedButtonIcon extends StatelessWidget {
       onPressed: onPressed,
       size: TextThemes.buttonSmall,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 
-  factory HHRaisedButtonIcon.medium({
+  factory HHRaisedButtonIcon.primaryMedium({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
   }) {
     return HHRaisedButtonIcon(
-      widthPercent: HHRaisedButton.mediumButtonWidth,
       iconStyle: IconThemes.onPrimaryMedium,
+      widthPercent: HHRaisedButton.mediumButtonWidth,
       color: ColorThemes.primary,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonMedium,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 
-  factory HHRaisedButtonIcon.large({
+  factory HHRaisedButtonIcon.primaryLarge({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
   }) {
     return HHRaisedButtonIcon(
-      widthPercent: HHRaisedButton.largeButtonWidth,
       iconStyle: IconThemes.onPrimaryMedium,
+      widthPercent: HHRaisedButton.largeButtonWidth,
       color: ColorThemes.primary,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonLarge,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 
-  factory HHRaisedButtonIcon.darkSmall({
+  factory HHRaisedButtonIcon.secondarySmall({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
   }) {
     return HHRaisedButtonIcon(
       iconStyle: IconThemes.onSecondarySmall,
       widthPercent: HHRaisedButton.smallButtonWidth,
       color: ColorThemes.secondary,
       label: label,
-      size: TextThemes.buttonSmall,
       onPressed: onPressed,
+      size: TextThemes.buttonSmall,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 
-  factory HHRaisedButtonIcon.darkMedium({
+  factory HHRaisedButtonIcon.secondaryMedium({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
   }) {
     return HHRaisedButtonIcon(
-      widthPercent: HHRaisedButton.mediumButtonWidth,
       iconStyle: IconThemes.onSecondaryMedium,
+      widthPercent: HHRaisedButton.mediumButtonWidth,
       color: ColorThemes.secondary,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonMedium,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 
-  factory HHRaisedButtonIcon.darkLarge({
+  factory HHRaisedButtonIcon.secondaryLarge({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
   }) {
     return HHRaisedButtonIcon(
+      iconStyle: IconThemes.onSecondaryMedium,
       widthPercent: HHRaisedButton.largeButtonWidth,
       color: ColorThemes.secondary,
-      iconStyle: IconThemes.onSecondaryMedium,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonLarge,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 
   factory HHRaisedButtonIcon.colorSmall({
     @required Function onPressed,
     @required String label,
-    @required Color buttonColor,
-    @required Color textColor,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
+    @required Color color,
+    @required Color fontColor,
   }) {
-    HHIconTheme _temp = HHIconTheme(
-      size: IconThemes.small.size,
-      color: textColor,
-    );
     return HHRaisedButtonIcon(
+      iconStyle: IconThemes.onSecondarySmall,
       widthPercent: HHRaisedButton.smallButtonWidth,
-      iconStyle: _temp,
+      color: color,
+      fontColor: fontColor,
       label: label,
-      color: buttonColor,
-      size: TextThemes.buttonSmall,
       onPressed: onPressed,
+      size: TextThemes.buttonSmall,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 
   factory HHRaisedButtonIcon.colorMedium({
     @required Function onPressed,
     @required String label,
-    @required Color buttonColor,
-    @required Color textColor,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
+    @required Color color,
+    @required Color fontColor,
   }) {
-    HHIconTheme _temp = HHIconTheme(
-      size: IconThemes.medium.size,
-      color: textColor,
-    );
     return HHRaisedButtonIcon(
+      iconStyle: IconThemes.onSecondaryMedium,
       widthPercent: HHRaisedButton.mediumButtonWidth,
-      color: buttonColor,
-      iconStyle: _temp,
+      color: color,
+      fontColor: fontColor,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonMedium,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 
   factory HHRaisedButtonIcon.colorLarge({
     @required Function onPressed,
     @required String label,
-    @required Color buttonColor,
-    @required Color textColor,
     @required IconData icon,
+    bool forceOneLine: false,
+    bool forceIconLeft: false,
+    @required Color color,
+    @required Color fontColor,
   }) {
-    HHIconTheme _temp = HHIconTheme(
-      size: IconThemes.medium.size,
-      color: textColor,
-    );
     return HHRaisedButtonIcon(
+      iconStyle: IconThemes.onSecondaryMedium,
       widthPercent: HHRaisedButton.largeButtonWidth,
-      color: buttonColor,
-      iconStyle: _temp,
+      color: color,
+      fontColor: fontColor,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonLarge,
       icon: icon,
+      forceOneLine: forceOneLine,
+      forceIconLeft: forceIconLeft,
     );
   }
 }

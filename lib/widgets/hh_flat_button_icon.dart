@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:{{projectName}}/styles/icon_themes.dart';
+import 'package:twenty20_mobile/styles/icon_themes.dart';
 
-import 'package:{{projectName}}/styles/text_themes.dart';
-import 'package:{{projectName}}/widgets/hh_icon.dart';
+import 'package:twenty20_mobile/styles/text_themes.dart';
+import 'package:twenty20_mobile/widgets/hh_icon.dart';
 
 class HHFlatButtonIcon extends StatelessWidget {
   HHFlatButtonIcon({
@@ -42,13 +42,13 @@ class HHFlatButtonIcon extends StatelessWidget {
     );
   }
 
-  factory HHFlatButtonIcon.small({
+  factory HHFlatButtonIcon.primarySmall({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
   }) {
     return HHFlatButtonIcon(
-      iconStyle: IconThemes.small,
+      iconStyle: IconThemes.primarySmall,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonSmall,
@@ -56,13 +56,13 @@ class HHFlatButtonIcon extends StatelessWidget {
     );
   }
 
-  factory HHFlatButtonIcon.medium({
+  factory HHFlatButtonIcon.primaryMedium({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
   }) {
     return HHFlatButtonIcon(
-      iconStyle: IconThemes.medium,
+      iconStyle: IconThemes.primaryMedium,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonMedium,
@@ -70,13 +70,13 @@ class HHFlatButtonIcon extends StatelessWidget {
     );
   }
 
-  factory HHFlatButtonIcon.large({
+  factory HHFlatButtonIcon.primaryLarge({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
   }) {
     return HHFlatButtonIcon(
-      iconStyle: IconThemes.large,
+      iconStyle: IconThemes.primaryLarge,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonLarge,
@@ -84,27 +84,27 @@ class HHFlatButtonIcon extends StatelessWidget {
     );
   }
 
-  factory HHFlatButtonIcon.darkSmall({
+  factory HHFlatButtonIcon.secondarySmall({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
   }) {
     return HHFlatButtonIcon(
-      iconStyle: IconThemes.darkSmall,
+      iconStyle: IconThemes.secondarySmall,
       label: label,
-      size: TextThemes.buttonSmall,
       onPressed: onPressed,
+      size: TextThemes.buttonSmall,
       icon: icon,
     );
   }
 
-  factory HHFlatButtonIcon.darkMedium({
+  factory HHFlatButtonIcon.secondaryMedium({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
   }) {
     return HHFlatButtonIcon(
-      iconStyle: IconThemes.darkMedium,
+      iconStyle: IconThemes.secondaryMedium,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonMedium,
@@ -112,13 +112,13 @@ class HHFlatButtonIcon extends StatelessWidget {
     );
   }
 
-  factory HHFlatButtonIcon.darkLarge({
+  factory HHFlatButtonIcon.secondaryLarge({
     @required Function onPressed,
     @required String label,
     @required IconData icon,
   }) {
     return HHFlatButtonIcon(
-      iconStyle: IconThemes.darkLarge,
+      iconStyle: IconThemes.secondaryLarge,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonLarge,
@@ -126,37 +126,27 @@ class HHFlatButtonIcon extends StatelessWidget {
     );
   }
 
-  factory HHFlatButtonIcon.colorSmall({
+  factory HHFlatButtonIcon.onPrimarySmall({
     @required Function onPressed,
     @required String label,
-    @required Color color,
     @required IconData icon,
   }) {
-    HHIconTheme _temp = HHIconTheme(
-      size: IconThemes.small.size,
-      color: color,
-    );
     return HHFlatButtonIcon(
-      iconStyle: _temp,
+      iconStyle: IconThemes.onPrimarySmall,
       label: label,
-      size: TextThemes.buttonSmall,
       onPressed: onPressed,
+      size: TextThemes.buttonSmall,
       icon: icon,
     );
   }
 
-  factory HHFlatButtonIcon.colorMedium({
+  factory HHFlatButtonIcon.onPrimaryMedium({
     @required Function onPressed,
     @required String label,
-    @required Color color,
     @required IconData icon,
   }) {
-    HHIconTheme _temp = HHIconTheme(
-      size: IconThemes.medium.size,
-      color: color,
-    );
     return HHFlatButtonIcon(
-      iconStyle: _temp,
+      iconStyle: IconThemes.onPrimaryMedium,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonMedium,
@@ -164,18 +154,55 @@ class HHFlatButtonIcon extends StatelessWidget {
     );
   }
 
-  factory HHFlatButtonIcon.colorLarge({
+  factory HHFlatButtonIcon.onPrimaryLarge({
     @required Function onPressed,
     @required String label,
-    @required Color color,
     @required IconData icon,
   }) {
-    HHIconTheme _temp = HHIconTheme(
-      size: IconThemes.large.size,
-      color: color,
-    );
     return HHFlatButtonIcon(
-      iconStyle: _temp,
+      iconStyle: IconThemes.onPrimaryLarge,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.onSecondarySmall({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.onSecondarySmall,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonSmall,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.onSecondaryMedium({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.onSecondaryMedium,
+      label: label,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+      icon: icon,
+    );
+  }
+
+  factory HHFlatButtonIcon.onSecondaryLarge({
+    @required Function onPressed,
+    @required String label,
+    @required IconData icon,
+  }) {
+    return HHFlatButtonIcon(
+      iconStyle: IconThemes.onSecondaryLarge,
       label: label,
       onPressed: onPressed,
       size: TextThemes.buttonLarge,

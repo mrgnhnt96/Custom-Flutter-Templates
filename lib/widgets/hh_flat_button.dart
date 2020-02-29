@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:{{projectName}}/styles/color_themes.dart';
-import 'package:{{projectName}}/styles/text_themes.dart';
+import 'package:twenty20_mobile/styles/color_themes.dart';
+import 'package:twenty20_mobile/styles/text_themes.dart';
 
 class HHFlatButton extends StatelessWidget {
   HHFlatButton({
@@ -35,7 +35,7 @@ class HHFlatButton extends StatelessWidget {
     );
   }
 
-  factory HHFlatButton.small({
+  factory HHFlatButton.primarySmall({
     @required Function onPressed,
     @required String title,
   }) {
@@ -47,7 +47,7 @@ class HHFlatButton extends StatelessWidget {
     );
   }
 
-  factory HHFlatButton.medium({
+  factory HHFlatButton.primaryMedium({
     @required Function onPressed,
     @required String title,
   }) {
@@ -59,7 +59,7 @@ class HHFlatButton extends StatelessWidget {
     );
   }
 
-  factory HHFlatButton.large({
+  factory HHFlatButton.primaryLarge({
     @required Function onPressed,
     @required String title,
   }) {
@@ -71,7 +71,7 @@ class HHFlatButton extends StatelessWidget {
     );
   }
 
-  factory HHFlatButton.darkSmall({
+  factory HHFlatButton.secondarySmall({
     @required Function onPressed,
     @required String title,
   }) {
@@ -83,7 +83,7 @@ class HHFlatButton extends StatelessWidget {
     );
   }
 
-  factory HHFlatButton.darkMedium({
+  factory HHFlatButton.secondaryMedium({
     @required Function onPressed,
     @required String title,
   }) {
@@ -95,13 +95,85 @@ class HHFlatButton extends StatelessWidget {
     );
   }
 
-  factory HHFlatButton.darkLarge({
+  factory HHFlatButton.secondaryLarge({
     @required Function onPressed,
     @required String title,
   }) {
     return HHFlatButton(
       title: title,
       color: ColorThemes.secondary,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+    );
+  }
+
+  factory HHFlatButton.onPrimarySmall({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.onPrimary,
+      onPressed: onPressed,
+      size: TextThemes.buttonSmall,
+    );
+  }
+
+  factory HHFlatButton.onPrimaryMedium({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.onPrimary,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+    );
+  }
+
+  factory HHFlatButton.onPrimaryLarge({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.onPrimary,
+      onPressed: onPressed,
+      size: TextThemes.buttonLarge,
+    );
+  }
+
+  factory HHFlatButton.onSecondarySmall({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.onSecondary,
+      onPressed: onPressed,
+      size: TextThemes.buttonSmall,
+    );
+  }
+
+  factory HHFlatButton.onSecondaryMedium({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.onSecondary,
+      onPressed: onPressed,
+      size: TextThemes.buttonMedium,
+    );
+  }
+
+  factory HHFlatButton.onSecondaryLarge({
+    @required Function onPressed,
+    @required String title,
+  }) {
+    return HHFlatButton(
+      title: title,
+      color: ColorThemes.onSecondary,
       onPressed: onPressed,
       size: TextThemes.buttonLarge,
     );
@@ -111,6 +183,7 @@ class HHFlatButton extends StatelessWidget {
     @required Function onPressed,
     @required String title,
     @required Color color,
+    @required Color fontColor,
   }) {
     return HHFlatButton(
       title: title,
@@ -124,6 +197,7 @@ class HHFlatButton extends StatelessWidget {
     @required Function onPressed,
     @required String title,
     @required Color color,
+    @required Color fontColor,
   }) {
     return HHFlatButton(
       title: title,
@@ -137,6 +211,7 @@ class HHFlatButton extends StatelessWidget {
     @required Function onPressed,
     @required String title,
     @required Color color,
+    @required Color fontColor,
   }) {
     return HHFlatButton(
       title: title,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:{{projectName}}/styles/color_themes.dart';
-import 'package:{{projectName}}/widgets/hh_icon.dart';
-import 'package:{{projectName}}/widgets/scale_widget.dart';
+import 'package:twenty20_mobile/styles/color_themes.dart';
+import 'package:twenty20_mobile/widgets/hh_icon.dart';
+import 'package:twenty20_mobile/widgets/scale_widget.dart';
 
 class HHCheckBox extends StatelessWidget {
   const HHCheckBox({
@@ -21,7 +21,7 @@ class HHCheckBox extends StatelessWidget {
         color: ColorThemes.secondary,
       ),
       child: ScaleWidget(
-        child: _state ? HHIcon.darkSmall(Icons.check) : null,
+        child: _state ? HHIcon.secondarySmall(Icons.check) : null,
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:{{projectName}}/styles/text_themes.dart';
-import 'package:{{projectName}}/widgets/hh_icon_button.dart';
+import 'package:twenty20_mobile/styles/text_themes.dart';
+import 'package:twenty20_mobile/widgets/hh_icon_button.dart';
 
 class HHAppBar extends AppBar {
   HHAppBar({
@@ -17,14 +17,14 @@ class HHAppBar extends AppBar {
           key: key,
           title: Text(
             title,
-            style: TextThemes.darkHeader5,
+            style: TextThemes.secondaryHeader5,
           ),
           elevation: 0,
           centerTitle: true,
           backgroundColor: color,
           actions: <Widget>[
             leftAction,
-            HHIconButton.darkSmall(
+            HHIconButton.secondarySmall(
               icon: Icons.notifications_active,
               onPressed: () {},
             ),

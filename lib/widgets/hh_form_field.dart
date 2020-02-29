@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:{{projectName}}/styles/color_themes.dart';
-import 'package:{{projectName}}/styles/text_themes.dart';
+import 'package:twenty20_mobile/styles/color_themes.dart';
+import 'package:twenty20_mobile/styles/text_themes.dart';
 
 class HHFormField extends StatelessWidget {
   const HHFormField({
@@ -30,7 +30,7 @@ class HHFormField extends StatelessWidget {
         maxLines: _labelText == 'Message' ? 10 : 2,
         decoration: InputDecoration(
           labelText: _labelText,
-          labelStyle: TextThemes.darkBody,
+          labelStyle: TextThemes.secondaryBody,
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: ColorThemes.primary, width: 1.0),
           ),
@@ -40,7 +40,7 @@ class HHFormField extends StatelessWidget {
         ),
         initialValue: _initialValue,
         validator: _validator,
-        style: TextThemes.darkBody,
+        style: TextThemes.secondaryBody,
         textInputAction: TextInputAction.done,
         keyboardType: _keyboardType,
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:{{projectName}}/widgets/hh_raised_button.dart';
+import 'package:twenty20_mobile/widgets/hh_raised_button.dart';
 
 class HHForm extends StatelessWidget {
   const HHForm({
@@ -30,7 +30,7 @@ class HHForm extends StatelessWidget {
           ..._children,
           Container(
             alignment: Alignment.center,
-            child: HHRaisedButton.medium(
+            child: HHRaisedButton.primaryMedium(
               title: _submitButtonText,
               onPressed: _onPressed,
             ),

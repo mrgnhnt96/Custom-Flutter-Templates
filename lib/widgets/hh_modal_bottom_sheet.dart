@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:{{projectName}}/styles/color_themes.dart';
+import 'package:twenty20_mobile/styles/color_themes.dart';
 
 class HHModalBottomSheet extends StatelessWidget {
   const HHModalBottomSheet({
